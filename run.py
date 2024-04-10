@@ -8,7 +8,7 @@ if __name__ == '__main__':
     
     terminal = ANSITerminal()
     #name = input('What is your name? \n')
-    user_player = Player('Andrew')
+    user_player = Player('Gabe')
     poker_game = PokerGame([user_player])
     intro = f'''
 
@@ -28,7 +28,7 @@ Press ENTER to continue...
     print(intro)
     user_input = 'NOT BLANK'
     while user_input != '':
-        user_input = input('')
+        user_input = input('').strip()
     print('')
 
     
