@@ -74,15 +74,29 @@ class Deck:
                 cards.append(Card(suit, rank))
         return cards
     
+    def take_top_card(self) -> Card:
+        if not len(self.cards) > 0:
+            raise IndexError('No top card.')
+        
+        return self.cards.pop(0)
+
+# class Hand:
+#     def __init__(self):
+#         self.cards = []
 
 class Player:
 
-    def __init__(self, name: str, hand = [], cash = 0) -> None:
+    def __init__(self, name: str) -> None:
         self.name = name
-        self.hand = hand
-        self.cash = cash
+        self.hand = []
+        self.cash = 0
 
     def __repr__(self) -> str:
         return f'< Player {self.name} >'  
 
-    
+    '''Bet an amount of cash or the total cash, whichever is greater.'''
+    def place_bet(self, amount: int) -> int:
+        return amount if amount <= self.cash else self.cash
+
+class ComputerPlayer(Player):
+    pass
